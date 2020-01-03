@@ -1,6 +1,7 @@
 #include "core.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 Model* stl_open(const char* fn)
 {
@@ -24,6 +25,18 @@ Model* stl_open(const char* fn)
     
     fread(&model->triangles, sizeof(uint32_t), 1, fp);
     model->data = (Triangle*)malloc(model->triangles * sizeof(Triangle));
+
+    int i;
+    for (i = 0; i < model->triangles; i++)
+    {
+        float data[12];
+        uint16_t attr;
+
+        fread(data, sizeof(float), 12, fp);
+        fread(&attr, sizeof(uint16_t), 1, fp);
+
+        triangle_gen(&model->data[i], data, attr);
+    }
 
     return model;
 }
