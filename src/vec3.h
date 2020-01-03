@@ -16,5 +16,6 @@ vec3 vec3_sub(vec3, vec3);
 float vec3_dot(vec3, vec3);
 vec3 vec3_scale(vec3, float);
 vec3 vec3_proj(vec3, vec3);
+vec3 vec3_cross(vec3, vec3);
 
 #endif /* VEC3_H */

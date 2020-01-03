@@ -69,3 +69,14 @@ vec3 vec3_proj(vec3 v, vec3 d)
 
     return out;    
 }
+
+vec3 vec3_cross(vec3 a, vec3 b)
+{
+    vec3 out;
+
+    out.x = a.y * b.z - a.z * b.y;
+    out.y = -1 * (a.x * b.z - a.z * b.x);
+    out.z = a.x * b.y - b.x * a.y;
+
+    return out;
+}

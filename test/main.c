@@ -15,6 +15,8 @@ int main(int argc, char** argv)
     }
     printf("ok\n");
 
+    printf("triangles: %d\n", m->triangles);
+
     stl_delete(m);
 
     return 0;
